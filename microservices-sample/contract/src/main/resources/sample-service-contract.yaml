@@ -1,0 +1,87 @@
+info:
+  title: test
+  description: Sample project
+  version: '1.0.0'
+consumes:
+  - application/json
+produces:
+  - application/json
+swagger: '2.0'
+security: []
+basePath: /
+paths:
+  /api/v1/microservice/:
+    get:
+      operationId: searchMicroservices
+      summary: List available microervices
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Microservice'
+    post:
+      operationId: addMicroservice
+      summary: Create a microservice
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+            format: uuid
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Microservice'
+    put:
+      operationId: editMicroservice
+      summary: Edit a microservice
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Microservice'
+      parameters:
+        - name: microserviceId
+          in: query
+          required: true
+          type: integer
+          format: int64
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Microservice'
+    delete:
+      operationId: deleteMicroservice
+      summary: Delete a microservice
+      responses:
+        200:
+          description: OK
+      parameters:
+        - name: microserviceId
+          in: query
+          required: true
+          type: string
+          format: uuid
+
+definitions:
+  Microservice:
+    type: object
+    properties:
+      id:
+        description: Unique id for this micrservice
+        type: string
+        format: uuid
+      name:
+        description: name of the micro service
+        type: string
+      description:
+        description: name of the micro service
+        type: string
+      owner:
+        description: Name of the owner of the microservie
+        type: string
