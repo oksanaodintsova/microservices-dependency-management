@@ -6,7 +6,7 @@
 
     <groupId>oksana.microservices.starters</groupId>
     <artifactId>microservices-dependency-management</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -17,8 +17,6 @@
         <module>microservices-bom</module>
         <module>microservices-parent</module>
         <module>microservices-sample</module>
-
-
     </modules>
 
 </project>
